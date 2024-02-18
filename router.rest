@@ -1,0 +1,25 @@
+### Home
+GET  http://localhost:3000/api
+
+### Get All
+GET http://localhost:3000/api/contacts
+
+### Create One
+POST http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{ 
+    "name":"54454" , 
+    "number": "0224"
+}
+### Edit One
+PUT  http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{
+	"id": 3,
+	"name": "pou142sddaaaaayaan",
+	"number": "648"
+}
+### Delete One
+DELETE  http://localhost:3000/api/contacts/1

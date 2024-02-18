@@ -1,0 +1,14 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./phonebook.sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Contact {
+  id     Int    @id @default(autoincrement())
+  name   String
+  number String
+}
