@@ -1,19 +1,19 @@
 ### Home
-GET  http://localhost:3000/api
+GET  http://localhost:3001/api
 
 ### Get All
-GET http://localhost:3000/api/contacts
+GET http://localhost:3001/api/contacts
 
 ### Create One
-POST http://localhost:3000/api/contacts
+POST http://localhost:3001/api/contacts
 Content-Type: application/json
 
 { 
-    "name":"54454" , 
-    "number": "0224"
+    "name":"علی محمدی" , 
+    "number": "0936456123"
 }
 ### Edit One
-PUT  http://localhost:3000/api/contacts
+PUT  http://localhost:3001/api/contacts
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 	"number": "648"
 }
 ### Delete One
-DELETE  http://localhost:3000/api/contacts/1
+DELETE  http://localhost:3001/api/contacts/4

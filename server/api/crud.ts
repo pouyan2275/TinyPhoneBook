@@ -7,14 +7,6 @@ router.use(express.json());
 
 const prisma = new PrismaClient();
 
-///---------------- routers
-
-router.use((req:any, res:any, next:any) => {
-    console.log(`Time: ${Date()}; url: ${req.url} method: ${req.method}`)
-    next()
-  })
-
-
 router.get('/',async(req:any,res:any) =>{
     res.send(`
      For Get All Contacts: /api/contacts Method GET <br><br>
