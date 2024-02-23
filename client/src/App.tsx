@@ -1,4 +1,4 @@
-import Contacts from "./Contacts";
+import Contacts from "./tableContacts/Contacts";
 import Navbar from "./Navbar";
 function App() {
   return (

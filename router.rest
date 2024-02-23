@@ -10,7 +10,7 @@ Content-Type: application/json
 
 { 
     "name":"علی محمدی" , 
-    "number": "0936456123"
+    "number": "0936456122"
 }
 ### Edit One
 PUT  http://localhost:3001/api/contacts
