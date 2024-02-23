@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Contact from "./modelContact";
-import RenderRow from "./renderRow";
+import RenderRow from "./RenderRow";
 
 const Contacts = () => {
   const [data, setData] = useState<Contact[]>([]);
