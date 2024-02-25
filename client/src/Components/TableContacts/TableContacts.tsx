@@ -1,6 +1,6 @@
 import RenderRow from "./RenderRow";
 
-const Contacts = () => {
+const TableContacts = () => {
   return (
     <>
       <table className="table text-center table-dark">
@@ -20,4 +20,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default TableContacts;

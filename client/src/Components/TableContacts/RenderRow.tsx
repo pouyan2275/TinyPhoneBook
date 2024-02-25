@@ -1,15 +1,16 @@
-import Contact from "./modelContact";
+import Contact from "../../../Models";
 import deleteContact from "./deleteContact";
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaTrash, FaPenToSquare } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const RenderRow: React.FC = () => {
   const [data, setData] = useState<Contact[]>([]);
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("http://localhost:3001/api/contacts");
+      const response = await fetch("http://192.168.1.2:3001/api/contacts");
       const contactsData = await response.json();
       setData(contactsData);
     };
@@ -28,9 +29,14 @@ const RenderRow: React.FC = () => {
         >
           <FaTrash />
         </button>
-        <button onClick={() => {}} className="btn btn-warning btn-edit">
+
+        <Link
+          to={`/edit`}
+          state={{ name: item.name, number: item.number, id: item.id }}
+          className="btn btn-warning btn-edit"
+        >
           <FaPenToSquare />
-        </button>
+        </Link>
       </td>
     </tr>
   ));

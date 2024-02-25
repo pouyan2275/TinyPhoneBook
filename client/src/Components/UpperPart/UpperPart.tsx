@@ -1,9 +1,11 @@
-const Navbar = () => {
+import { Link } from "react-router-dom";
+
+const UpperPart = () => {
   return (
     <>
-      <button className="btn btn-success btn-add-contact">
+      <Link to="/addcontact" className="btn btn-success btn-add-contact">
         اضافه کردن مخاطب
-      </button>
+      </Link>
       <br />
       <form action="" className="form-inline">
         <input
@@ -18,4 +20,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UpperPart;

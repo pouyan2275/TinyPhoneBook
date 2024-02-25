@@ -1,13 +1,9 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./index.css";
+import Router from "./Router";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <>
-    <App />
-  </>
-);
+ReactDOM.createRoot(document.getElementById("root")!).render(<Router />);
