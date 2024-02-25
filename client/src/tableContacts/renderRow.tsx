@@ -1,12 +1,21 @@
 import Contact from "./modelContact";
 import deleteContact from "./deleteContact";
 import React from "react";
+import { useState, useEffect } from "react";
 
-const RenderRow: React.FC<{ data: Contact[]; setData: any }> = ({
-  data,
-  setData,
-}) =>
-  data.map((item: Contact, i: number) => (
+const RenderRow: React.FC = () => {
+  const [data, setData] = useState<Contact[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch("http://localhost:3001/api/contacts");
+      const contactsData = await response.json();
+      setData(contactsData);
+    };
+
+    getData();
+  }, []);
+  return data.map((item: Contact, i: number) => (
     <tr key={item.id}>
       <td>{i + 1}</td>
       <td>{item.name}</td>
@@ -24,5 +33,5 @@ const RenderRow: React.FC<{ data: Contact[]; setData: any }> = ({
       </td>
     </tr>
   ));
-
+};
 export default RenderRow;

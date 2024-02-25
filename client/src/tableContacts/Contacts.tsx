@@ -1,20 +1,6 @@
-import { useState, useEffect } from "react";
-import Contact from "./modelContact";
 import RenderRow from "./RenderRow";
 
 const Contacts = () => {
-  const [data, setData] = useState<Contact[]>([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch("http://localhost:3001/api/contacts");
-      const contactsData = await response.json();
-      setData(contactsData);
-    };
-
-    getData();
-  }, []);
-
   return (
     <>
       <table className="table text-center table-dark">
@@ -27,7 +13,7 @@ const Contacts = () => {
           </tr>
         </thead>
         <tbody>
-          <RenderRow data={data} setData={setData} />
+          <RenderRow />
         </tbody>
       </table>
     </>
