@@ -21,3 +21,7 @@ body{
 .btn-edit{
   margin-right: 10px; ;
 }
+.btn-add-contact{
+  width: auto;
+  margin: 0 auto;
+}

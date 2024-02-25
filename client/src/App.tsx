@@ -1,5 +1,6 @@
 import Contacts from "./tableContacts/Contacts";
 import Navbar from "./Navbar";
+
 function App() {
   return (
     <div className="row app">

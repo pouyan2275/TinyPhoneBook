@@ -1,7 +1,9 @@
 const Navbar = () => {
   return (
     <>
-      <button className="btn btn-primary">اضافه کردن مخاطب</button>
+      <button className="btn btn-success btn-add-contact">
+        اضافه کردن مخاطب
+      </button>
       <br />
       <form action="" className="form-inline">
         <input

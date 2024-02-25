@@ -2,6 +2,7 @@ import Contact from "./modelContact";
 import deleteContact from "./deleteContact";
 import React from "react";
 import { useState, useEffect } from "react";
+import { FaTrash, FaPenToSquare } from "react-icons/fa6";
 
 const RenderRow: React.FC = () => {
   const [data, setData] = useState<Contact[]>([]);
@@ -25,10 +26,10 @@ const RenderRow: React.FC = () => {
           onClick={() => deleteContact(item.id, item.name, { data, setData })}
           className="btn btn-danger"
         >
-          حذف
+          <FaTrash />
         </button>
         <button onClick={() => {}} className="btn btn-warning btn-edit">
-          ویرایش
+          <FaPenToSquare />
         </button>
       </td>
     </tr>
