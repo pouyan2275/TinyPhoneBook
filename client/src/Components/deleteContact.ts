@@ -4,7 +4,7 @@ const deleteContact = async (id: number, name: string, state: any) => {
   );
 
   if (shouldDelete) {
-    const response = await fetch(`http://localhost:3001/api/contacts/${id}`, {
+    const response = await fetch(`http://${window.location.hostname}:3001/api/contacts/${id}`, {
       method: "DELETE",
     });
 

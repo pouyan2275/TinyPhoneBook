@@ -10,7 +10,9 @@ const RenderRow: React.FC<{ search: any }> = ({ search }) => {
   console.log(search);
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("http://localhost:3001/api/contacts");
+      const response = await fetch(
+        `http://${window.location.hostname}:3001/api/contacts`
+      );
       const contactsData = await response.json();
       setData(contactsData);
     };

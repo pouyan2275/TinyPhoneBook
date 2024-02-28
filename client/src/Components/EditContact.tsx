@@ -18,8 +18,16 @@ const EditContact: React.FC = () => {
       },
       body: JSON.stringify(data),
     };
-    await fetch("http://localhost:3001/api/contacts", options);
-    window.alert("مخاطب با موفقیت ویرایش شد");
+    const res = await fetch(
+      `http://${window.location.hostname}:3001/api/contacts`,
+      options
+    );
+    if (res.status == 200) {
+      window.alert("مخاطب با موفقیت ویرایش شد");
+      window.location.pathname = "/";
+    } else {
+      window.alert("خطا در ویرایش مخاطب ");
+    }
   };
   return (
     <>
