@@ -26,7 +26,6 @@ router.get('/contacts', async (req:any, res:any) => {
 router.post('/contacts', validationParams , async (req:any, res:any) => {
     const number:string = req.body.number
     const name:string = req.body.name
-
     let contact : Prisma.ContactCreateInput = {
         name,
         number

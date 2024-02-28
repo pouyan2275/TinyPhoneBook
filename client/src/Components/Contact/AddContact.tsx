@@ -1,39 +1,29 @@
 import { useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { addContact } from "./api";
 
-const EditContact: React.FC = () => {
-  const { name, number, id } = useLocation().state;
+const AddContact = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const numberRef = useRef<HTMLInputElement>(null);
+
   const handleSubmit = async () => {
-    const data = {
-      id,
-      name: nameRef.current?.value,
-      number: numberRef.current?.value,
-    };
-    const options = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    const res = await fetch(
-      `http://${window.location.hostname}:3001/api/contacts`,
-      options
+    const res = await addContact(
+      nameRef.current?.value,
+      numberRef.current?.value
     );
     if (res.status == 200) {
-      window.alert("مخاطب با موفقیت ویرایش شد");
+      window.alert("مخاطب با موفقیت افزوده شد");
       window.location.pathname = "/";
     } else {
-      window.alert("خطا در ویرایش مخاطب ");
+      window.alert("خطا در اضافه کردن مخاطب جدید");
     }
   };
   return (
     <>
       <label htmlFor="form" className="p-3">
-        ویرایش مخاطب
+        اضافه کردن مخاطب
       </label>
+
       <form>
         <div className="form-group row">
           <div className="form-group py-2">
@@ -41,7 +31,6 @@ const EditContact: React.FC = () => {
               type="text"
               className="form-control"
               placeholder="نام و نام خانوادگی"
-              defaultValue={name}
               ref={nameRef}
             />
           </div>
@@ -51,7 +40,6 @@ const EditContact: React.FC = () => {
               className="form-control"
               placeholder="شماره تماس"
               ref={numberRef}
-              defaultValue={number}
             />
           </div>
           <div className="row justify-content-center py-4">
@@ -75,4 +63,4 @@ const EditContact: React.FC = () => {
   );
 };
 
-export default EditContact;
+export default AddContact;

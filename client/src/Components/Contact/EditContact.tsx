@@ -1,38 +1,32 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
-
-const AddContact = () => {
+import { Link, useLocation } from "react-router-dom";
+import { editContact } from "./api";
+const EditContact: React.FC = () => {
+  const { name, number, id } = useLocation().state;
   const nameRef = useRef<HTMLInputElement>(null);
   const numberRef = useRef<HTMLInputElement>(null);
+  // id,
+  // name: nameRef.current?.value,
+  // number: numberRef.current?.value,
   const handleSubmit = async () => {
-    const data = {
-      name: nameRef.current?.value,
-      number: numberRef.current?.value,
-    };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    const res = await fetch(
-      `http://${window.location.hostname}:3001/api/contacts`,
-      options
+    const res = await editContact(
+      id,
+      nameRef.current?.value,
+      numberRef.current?.value
     );
     if (res.status == 200) {
-      window.alert("مخاطب با موفقیت افزوده شد");
+      window.alert("مخاطب با موفقیت ویرایش شد");
       window.location.pathname = "/";
     } else {
-      window.alert("خطا در اضافه کردن مخاطب جدید");
+      window.alert("خطا در ویرایش مخاطب ");
     }
   };
+
   return (
     <>
       <label htmlFor="form" className="p-3">
-        اضافه کردن مخاطب
+        ویرایش مخاطب
       </label>
-
       <form>
         <div className="form-group row">
           <div className="form-group py-2">
@@ -40,6 +34,7 @@ const AddContact = () => {
               type="text"
               className="form-control"
               placeholder="نام و نام خانوادگی"
+              defaultValue={name}
               ref={nameRef}
             />
           </div>
@@ -49,6 +44,7 @@ const AddContact = () => {
               className="form-control"
               placeholder="شماره تماس"
               ref={numberRef}
+              defaultValue={number}
             />
           </div>
           <div className="row justify-content-center py-4">
@@ -72,4 +68,4 @@ const AddContact = () => {
   );
 };
 
-export default AddContact;
+export default EditContact;

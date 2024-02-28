@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ErrorPage from "./Components/error-page";
-import EditContact from "./Components/EditContact";
-import AddContact from "./Components/AddContact";
-import TableContacts from "./Components/TableContacts";
+import ErrorPage from "./error-page";
+import EditContact from "./Components/Contact/EditContact";
+import AddContact from "./Components/Contact/AddContact";
+import TableContacts from "./Components/Contact/TableContacts";
 
 const Router = () => {
   return (
