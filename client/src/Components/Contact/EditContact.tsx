@@ -5,9 +5,7 @@ const EditContact: React.FC = () => {
   const { name, number, id } = useLocation().state;
   const nameRef = useRef<HTMLInputElement>(null);
   const numberRef = useRef<HTMLInputElement>(null);
-  // id,
-  // name: nameRef.current?.value,
-  // number: numberRef.current?.value,
+
   const handleSubmit = async () => {
     const res = await editContact(
       id,

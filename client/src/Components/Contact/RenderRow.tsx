@@ -1,5 +1,5 @@
 import Contact from "../../../Models";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FaTrash, FaPenToSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -8,10 +8,9 @@ import { getAllContacts, deleteContact } from "./api";
 const RenderRow: React.FC<{ search: any }> = ({ search }) => {
   const [data, setData] = useState<Contact[]>([]);
 
-  (async () => {
-    const res = await getAllContacts();
-    setData(res);
-  })();
+  useEffect(() => {
+    getAllContacts().then((contacts) => setData(contacts));
+  }, []);
 
   return data
     .filter((item) =>
